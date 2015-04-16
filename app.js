@@ -8,6 +8,11 @@ angular.module('flapperNews', ['ui.router'])
             url: '/home',
             templateUrl: '/home.html',
             controller: 'MainCtrl'
+        })
+        .state('posts', {
+            url: '/posts/{id}',
+            templateUrl: '/posts.html',
+            controller: 'PostsCtrl'
         });
 
         $urlRouterProvider.otherwise('home');
@@ -32,7 +37,11 @@ angular.module('flapperNews', ['ui.router'])
       $scope.posts.push({
         title: $scope.title, 
         link: $scope.link,
-        upvotes: 0
+        upvotes: 0,
+        comments: [
+            {author: 'Joe', body: 'Hello world!', upvotes: 1},
+            {author: 'Bob', body: 'lol this is funny', upvotes:2}
+        ]
       });
       $scope.title = '';
       $scope.link = '';
@@ -41,5 +50,14 @@ angular.module('flapperNews', ['ui.router'])
       post.upvotes ++;
     };
   }
+])
+
+.controller('PostsCtrl', [
+    '$scope',
+    '$stateParams',
+    'posts',
+    function($scope, $stateParams, posts){
+        $scope.post = posts.posts[$stateParams.id];
+    }
 ]);
 
