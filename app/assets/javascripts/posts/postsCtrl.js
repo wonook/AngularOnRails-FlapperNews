@@ -4,7 +4,7 @@ angular.module('flapperNews')
     //'$stateParams',
     'posts',
     'post',
-    function($scope, $stateParams, posts){
+    function($scope, posts, post){
         //$scope.post = posts.posts[$stateParams.id];
         $scope.post = post;
         $scope.addComment = function() {
