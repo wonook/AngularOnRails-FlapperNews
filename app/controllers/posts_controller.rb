@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     def index
-        repond_with Post.all
+        respond_with Post.all
     end
 
     def create
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
     def upvote
         post = Post.find(params[:id])
-        post.increment!(;upvotes)
+        post.increment!(:upvotes)
 
         respond_with post
     end
