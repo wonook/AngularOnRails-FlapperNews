@@ -7,11 +7,9 @@ angular.module('flapperNews')
     $scope.posts = posts.posts;
     $scope.addPost = function() {
       if(!$scope.title || $scope.title === '') { $scope.title="No Title"; }
-      $scope.posts.push({
-        title: $scope.title, 
-        link: $scope.link,
-        upvotes: 0,
-        comments: []
+      posts.create({
+          title: $scope.title,
+          link: $scope.link,
       });
       $scope.title = '';
       $scope.link = '';
