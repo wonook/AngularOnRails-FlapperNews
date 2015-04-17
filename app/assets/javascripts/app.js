@@ -1,4 +1,4 @@
-angular.module('flapperNews', ['ui.router'])
+angular.module('flapperNews', ['ui.router', 'templates'])
 .config([
     '$stateProvider',
     '$urlRouterProvider',
@@ -6,7 +6,7 @@ angular.module('flapperNews', ['ui.router'])
         $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: '/home.html',
+            templateUrl: 'assets/home/_home.html',
             controller: 'MainCtrl',
             resolve: {
                 postPromise: ['posts', function(posts){
@@ -16,7 +16,7 @@ angular.module('flapperNews', ['ui.router'])
         })
         .state('posts', {
             url: '/posts/{id}',
-            templateUrl: '/posts.html',
+            templateUrl: 'assets/posts/_posts.html',
             controller: 'PostsCtrl',
             resolve: {
                 post: ['$stateParams', 'posts', function($stateParams, posts) {
