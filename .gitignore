@@ -19,3 +19,5 @@
 *.swp
 *.DS_S*
 config/*.yml
+/.idea
+*.iml
